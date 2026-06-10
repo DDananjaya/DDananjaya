@@ -1,651 +1,328 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>M L D Dananjaya — Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+/* =====================================================
+   M L D DANANJAYA — CLEAN PORTFOLIO STYLE.CSS
+   Optimized UI/UX + Responsive + Consistent System
+===================================================== */
 
-<!-- CURSORS -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+/* =====================
+   ROOT VARIABLES
+===================== */
+:root {
+  --bg: #060810;
+  --surface: #0b0e17;
+  --surface2: #101522;
 
-<!-- SPARK CANVAS (particle clicks) -->
-<canvas id="spark-canvas"></canvas>
+  --c1: #00f0ff;
+  --c2: #b06eff;
+  --c3: #39ff9e;
 
-<!-- MATRIX RAIN CANVAS -->
-<canvas id="matrix-canvas"></canvas>
+  --text: #c8d4e8;
+  --muted: #6b7a90;
+  --white: #eaf2ff;
 
-<!-- SCROLL PROGRESS -->
-<div class="scroll-progress" id="scroll-progress"></div>
+  --border: rgba(0,240,255,0.12);
 
-<!-- AURORA BACKGROUND -->
-<div class="aurora-bg">
-  <div class="aurora-layer"></div>
-  <div class="aurora-layer"></div>
-  <div class="aurora-layer"></div>
-</div>
+  --shadow: 0 20px 60px rgba(0,0,0,0.35);
 
-<!-- CONIC MESH BACKGROUND -->
-<div class="mesh-bg"></div>
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
 
-<div class="page">
+  --space-1: 6px;
+  --space-2: 12px;
+  --space-3: 18px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">&lt;<span>M L D Dananjaya</span>/&gt;</a>
-  <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#skills">stack</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#connect">connect</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  --max-width: 1100px;
 
-<!-- MOBILE DRAWER -->
-<nav class="nav-drawer" id="nav-drawer">
-  <a href="#about"    onclick="closeDrawer()">about</a>
-  <a href="#skills"   onclick="closeDrawer()">stack</a>
-  <a href="#projects" onclick="closeDrawer()">projects</a>
-  <a href="#connect"  onclick="closeDrawer()">connect</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-decoration"><div class="hero-deco-inner"></div></div>
-  <div class="container">
-    <div class="hero-grid">
-
-      <!-- LEFT -->
-      <div class="hero-content">
-        <div class="hero-label">Available for opportunities</div>
-
-        <h1 class="hero-name">
-          <span class="glitch" data-text="M L D">M L D</span><br>
-          <span class="hero-accent">Dananjaya</span>
-        </h1>
-
-        <div class="hero-handle">
-          <span>@DDananjaya</span> · Full Stack Developer
-        </div>
-
-        <p class="hero-tagline">
-          NIBM Software Engineering student. I let my code speak for itself —
-          building systems that solve real problems with clean architecture and readable logic.
-        </p>
-
-        <div class="typing-wrap">
-          <span class="typing-text">Dedicated problem solver and self-learner.</span>
-        </div>
-
-        <div class="hero-btns">
-          <a href="#projects" class="btn btn-primary">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-            </svg>
-            View Projects
-          </a>
-          <a href="https://github.com/DDananjaya" target="_blank" class="btn btn-outline">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            GitHub
-          </a>
-          <a href="https://day-jay-solutions.vercel.app/" target="_blank" class="btn btn-outline">↗ Company</a>
-        </div>
-      </div>
-
-      <!-- RIGHT: AVATAR -->
-      <div class="hero-visual">
-        <div class="avatar-wrapper" id="avatar-wrapper">
-          <div class="avatar-ring-dash"></div>
-          <div class="avatar-ring-conic"></div>
-          <img
-            src="https://avatars.githubusercontent.com/u/194567651?v=4"
-            alt="M L D Dananjaya"
-            class="avatar-img"
-          />
-          <div class="avatar-holo"></div>
-          <div class="avatar-hex">💻</div>
-          <div class="status-badge">
-            <div class="status-dot"></div>
-            Open to Work
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-track" id="ticker-track">
-    <span class="ticker-item">Full Stack Developer</span>
-    <span class="ticker-item">React · Vite · Node.js</span>
-    <span class="ticker-item">Java · Spring Boot</span>
-    <span class="ticker-item">MySQL · MongoDB</span>
-    <span class="ticker-item">NIBM Sri Lanka</span>
-    <span class="ticker-item">Open Source</span>
-    <span class="ticker-item">Clean Code</span>
-    <span class="ticker-item">Problem Solver</span>
-    <span class="ticker-item">Full Stack Developer</span>
-    <span class="ticker-item">React · Vite · Node.js</span>
-    <span class="ticker-item">Java · Spring Boot</span>
-    <span class="ticker-item">MySQL · MongoDB</span>
-    <span class="ticker-item">NIBM Sri Lanka</span>
-    <span class="ticker-item">Open Source</span>
-    <span class="ticker-item">Clean Code</span>
-    <span class="ticker-item">Problem Solver</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-
-      <div class="about-text reveal reveal-delay-1">
-        <p>
-          I'm <strong style="color:var(--white)">M L D Dananjaya</strong> — a passionate Full Stack Developer currently pursuing a Software Engineering degree at NIBM, Sri Lanka.
-        </p>
-        <p>
-          I build everything from pixel-perfect frontends to robust backend systems. My philosophy is simple: <em style="color:var(--c1)">let the code speak for itself</em>. Clean architecture, readable logic, meaningful commits.
-        </p>
-        <p>
-          When I'm not coding, I'm exploring new frameworks, contributing to open source, or solving algorithmic challenges that push my limits.
-        </p>
-
-        <div class="about-meta">
-          <div class="meta-item">
-            <div class="meta-icon">🎓</div>
-            <div>
-              <div class="meta-label">Education</div>
-              <div class="meta-value">Diploma in Software Engineering — NIBM</div>
-            </div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-icon">📍</div>
-            <div>
-              <div class="meta-label">Location</div>
-              <div class="meta-value">Sri Lanka</div>
-            </div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-icon">🔗</div>
-            <div>
-              <div class="meta-label">My Company</div>
-              <div class="meta-value">
-                <a href="https://day-jay-solutions.vercel.app/" target="_blank"
-                   style="color:var(--c1);text-decoration:none">
-                  day-jay-solutions.vercel.app
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats-grid reveal reveal-delay-2">
-        <div class="stat-card">
-          <div class="stat-num">12<span class="acc">+</span></div>
-          <div class="stat-label">Repositories</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">40<span class="acc">★</span></div>
-          <div class="stat-label">Stars Earned</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">6<span class="acc">+</span></div>
-          <div class="stat-label">Projects Shipped</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Problems Solved</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TERMINAL -->
-<div class="container" style="position:relative;z-index:2;">
-  <div class="terminal reveal">
-    <div class="terminal-bar">
-      <div class="t-dot t-red"></div>
-      <div class="t-dot t-yellow"></div>
-      <div class="t-dot t-green"></div>
-      <span class="t-title">dananjaya ~ bash</span>
-    </div>
-    <div class="terminal-body">
-      <div><span class="t-prompt">➜</span> <span class="t-cmd">cat profile.json</span></div>
-      <div><span class="t-comment">{</span></div>
-      <div>&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-string">"M L D Dananjaya"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-string">"Full Stack Developer"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"education"</span>: <span class="t-string">"NIBM Software Engineering"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"passion"</span>: <span class="t-string">"Building things that matter"</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"available"</span>: <span class="t-val">true</span>,</div>
-      <div>&nbsp;&nbsp;<span class="t-key">"coffee_dependent"</span>: <span class="t-val">true</span></div>
-      <div><span class="t-comment">}</span></div>
-      <div style="margin-top:8px"><span class="t-prompt">➜</span> <span class="t-cursor"></span></div>
-    </div>
-  </div>
-</div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-wrapper">
-
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="skill-group-title">Frontend</div>
-        <div class="skill-tags">
-          <span class="tag">React</span>
-          <span class="tag">Vite</span>
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal reveal-delay-2">
-        <div class="skill-group-title">Backend</div>
-        <div class="skill-tags">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">REST APIs</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal reveal-delay-3">
-        <div class="skill-group-title">Databases</div>
-        <div class="skill-tags">
-          <span class="tag">MySQL</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">SQL</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal reveal-delay-1">
-        <div class="skill-group-title">Tools &amp; Infra</div>
-        <div class="skill-tags">
-          <span class="tag">Git</span>
-          <span class="tag">GitHub</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">VS Code</span>
-          <span class="tag">IntelliJ</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal reveal-delay-2">
-        <div class="skill-group-title">Concepts</div>
-        <div class="skill-tags">
-          <span class="tag">OOP</span>
-          <span class="tag">MVC</span>
-          <span class="tag">Data Structures</span>
-          <span class="tag">Algorithms</span>
-          <span class="tag">Networking</span>
-        </div>
-      </div>
-
-      <div class="skill-group reveal reveal-delay-3">
-        <div class="skill-group-title">Currently Learning</div>
-        <div class="skill-tags">
-          <span class="tag" style="border-color:rgba(255,228,89,0.4);color:#ffe459">TypeScript</span>
-          <span class="tag" style="border-color:rgba(255,228,89,0.4);color:#ffe459">Docker</span>
-          <span class="tag" style="border-color:rgba(255,228,89,0.4);color:#ffe459">AWS</span>
-          <span class="tag" style="border-color:rgba(255,228,89,0.4);color:#ffe459">GraphQL</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-
-      <div class="project-card reveal reveal-delay-1" id="tilt-1">
-        <div class="project-num">// project_01</div>
-        <div class="project-title">DayJay Solutions</div>
-        <p class="project-desc">Modern portfolio built with React and Vite, featuring a clean pastel UI. Showcases professional services and projects with responsive design and smooth user experience.</p>
-        <div class="project-tech">
-          <span class="tag">React</span><span class="tag">Vite</span><span class="tag">CSS</span>
-        </div>
-        <a href="https://github.com/DDananjaya/DayJay-Solutions" target="_blank" class="project-link">View Source →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-2" id="tilt-2">
-        <div class="project-num">// project_02</div>
-        <div class="project-title">PK Furniture EAD</div>
-        <p class="project-desc">Enterprise Application Development coursework — a full furniture management system built in Java with backend services, data models, and REST API architecture.</p>
-        <div class="project-tech">
-          <span class="tag">Java</span><span class="tag">EAD</span><span class="tag">REST API</span>
-        </div>
-        <a href="https://github.com/DDananjaya/PK-Furniture-EAD-" target="_blank" class="project-link">View Source →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-1" id="tilt-3">
-        <div class="project-num">// project_03</div>
-        <div class="project-title">Hospital Management System</div>
-        <p class="project-desc">OOP coursework — a comprehensive hospital management solution implementing core OOP principles: encapsulation, inheritance, and polymorphism.</p>
-        <div class="project-tech">
-          <span class="tag">Java</span><span class="tag">OOP</span>
-        </div>
-        <a href="https://github.com/DDananjaya/HospitalManagementSystem" target="_blank" class="project-link">View Source →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-2" id="tilt-4">
-        <div class="project-num">// project_04</div>
-        <div class="project-title">Gym PR System</div>
-        <p class="project-desc">A gym personal record tracking system built with JavaScript. Allows users to log, track, and manage workout personal records with a clean and intuitive interface.</p>
-        <div class="project-tech">
-          <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
-        </div>
-        <a href="https://github.com/DDananjaya/gym-pr-system" target="_blank" class="project-link">View Source →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-1" id="tilt-5">
-        <div class="project-num">// project_05</div>
-        <div class="project-title">Euro Call Network Redesign</div>
-        <p class="project-desc">Computer Networks coursework — a complete network redesign and architecture project for Euro Call, demonstrating network topology, IP planning, and infrastructure design.</p>
-        <div class="project-tech">
-          <span class="tag">Networking</span><span class="tag">CN</span>
-        </div>
-        <a href="https://github.com/DDananjaya/Euro-call-Network-Redesign" target="_blank" class="project-link">View Source →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-2" id="tilt-6"
-           style="border-style:dashed;background:linear-gradient(135deg,rgba(0,240,255,0.02),transparent);">
-        <div class="project-num">// more_projects</div>
-        <div class="project-title">+7 More Repos</div>
-        <p class="project-desc">Explore all repositories on GitHub — from HTML/CSS experiments to full-stack applications. Each project reflects a step forward in the journey.</p>
-        <div class="project-tech"></div>
-        <a href="https://github.com/DDananjaya?tab=repositories" target="_blank" class="project-link"
-           style="color:var(--c3)">github.com/DDananjaya →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONNECT -->
-<section id="connect">
-  <div class="container">
-    <div class="connect-inner reveal">
-      <div class="section-num" style="margin-bottom:16px;display:inline-block">04</div>
-      <h2 class="connect-title">Let's <span>Build</span><br>Something Great</h2>
-      <p class="connect-desc">
-        Whether you have a project in mind, want to collaborate, or just want to talk code — my inbox is always open.
-      </p>
-      <div class="social-row">
-        <a href="https://github.com/DDananjaya" target="_blank" class="social-link">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/dileeshapa-dananjaya-869747363" target="_blank" class="social-link">
-          <svg viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-          LinkedIn
-        </a>
-        <a href="https://www.instagram.com/dana__028" target="_blank" class="social-link">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-          </svg>
-          Instagram
-        </a>
-        <a href="https://day-jay-solutions.vercel.app/" target="_blank" class="social-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-          </svg>
-          Website
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span>© 2026 <a href="https://github.com/DDananjaya">DDananjaya</a>. Built with &lt;/&gt; and ☕</span>
-  <span>// <a href="https://github.com/DDananjaya" target="_blank">github.com/DDananjaya</a></span>
-</footer>
-
-</div><!-- /page -->
-
-<!-- BACK TO TOP -->
-<a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
-
-<script>
-/* ═══════════════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════════════ */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top  = my + 'px';
-});
-
-(function animRing() {
-  rx += (mx - rx) * 0.14;
-  ry += (my - ry) * 0.14;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(animRing);
-})();
-
-/* ═══════════════════════════════════════════
-   MATRIX RAIN
-═══════════════════════════════════════════ */
-const mc  = document.getElementById('matrix-canvas');
-const ctx = mc.getContext('2d');
-
-function resizeMC() { mc.width = innerWidth; mc.height = innerHeight; }
-resizeMC();
-addEventListener('resize', resizeMC);
-
-const chars = '01アイウエオSEDEVJAVASCRIPT{}[]</>ABCDEF0123456789';
-const col   = 14;
-let columns = Math.floor(mc.width / col);
-let drops   = Array.from({ length: columns }, () => Math.random() * mc.height / col | 0);
-
-function drawMatrix() {
-  ctx.fillStyle = 'rgba(6,8,16,0.05)';
-  ctx.fillRect(0, 0, mc.width, mc.height);
-  ctx.fillStyle = '#00f0ff';
-  ctx.font = col + 'px Space Mono, monospace';
-  drops.forEach((y, i) => {
-    const ch = chars[Math.random() * chars.length | 0];
-    ctx.fillText(ch, i * col, y * col);
-    if (y * col > mc.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
-  });
+  --font-main: 'Space Mono', monospace;
+  --font-display: 'Syne', sans-serif;
 }
-setInterval(drawMatrix, 65);
 
-/* ═══════════════════════════════════════════
-   SPARK PARTICLE CANVAS
-═══════════════════════════════════════════ */
-const sc   = document.getElementById('spark-canvas');
-const sctx = sc.getContext('2d');
-sc.width = innerWidth; sc.height = innerHeight;
-addEventListener('resize', () => { sc.width = innerWidth; sc.height = innerHeight; });
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-const COLORS = ['#00f0ff','#b06eff','#39ff9e','#ff4d6d','#ffe259'];
-const sparks = [];
+html {
+  scroll-behavior: smooth;
+}
 
-class Spark {
-  constructor(x, y) {
-    this.x = x; this.y = y;
-    const angle = Math.random() * Math.PI * 2;
-    const speed = 1.5 + Math.random() * 3.5;
-    this.vx = Math.cos(angle) * speed;
-    this.vy = Math.sin(angle) * speed;
-    this.life = 1;
-    this.decay = 0.025 + Math.random() * 0.03;
-    this.r = 2 + Math.random() * 2.5;
-    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* =====================
+   GLOBAL CONTAINER
+===================== */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 var(--space-4);
+}
+
+/* =====================
+   SCROLLBAR
+===================== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--c1), var(--c2));
+  border-radius: 10px;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--space-3) var(--space-5);
+
+  background: rgba(6,8,16,0.8);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--border);
+
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--c1);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--c1);
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 90px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 64px);
+  color: var(--white);
+}
+
+.hero-tagline {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  max-width: 500px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #000;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--c1);
+}
+
+.btn-outline:hover {
+  background: rgba(0,240,255,0.08);
+  border-color: var(--c1);
+}
+
+/* =====================
+   SECTIONS
+===================== */
+section {
+  padding: var(--space-6) 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.section-num {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--c1);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--white);
+}
+
+/* =====================
+   ABOUT
+===================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-5);
+}
+
+/* =====================
+   SKILLS
+===================== */
+.skills-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.skill-group {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  transition: 0.3s;
+}
+
+.skill-group:hover {
+  transform: translateY(-5px);
+  border-color: var(--c1);
+}
+
+/* =====================
+   PROJECTS
+===================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.project-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c2);
+}
+
+/* =====================
+   TERMINAL
+===================== */
+.terminal {
+  background: rgba(10,12,20,0.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow);
+}
+
+/* =====================
+   RESPONSIVE DESIGN
+===================== */
+@media (max-width: 900px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
-    this.vy += 0.06; // gravity
-    this.life -= this.decay;
+
+  .about-grid {
+    grid-template-columns: 1fr;
   }
-  draw() {
-    sctx.save();
-    sctx.globalAlpha = Math.max(0, this.life);
-    sctx.beginPath();
-    sctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    sctx.fillStyle = this.color;
-    sctx.shadowColor = this.color;
-    sctx.shadowBlur = 6;
-    sctx.fill();
-    sctx.restore();
+
+  .skills-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
   }
 }
 
-function animSparks() {
-  sctx.clearRect(0, 0, sc.width, sc.height);
-  for (let i = sparks.length - 1; i >= 0; i--) {
-    sparks[i].update();
-    sparks[i].draw();
-    if (sparks[i].life <= 0) sparks.splice(i, 1);
+@media (max-width: 500px) {
+  .skills-wrapper {
+    grid-template-columns: 1fr;
   }
-  requestAnimationFrame(animSparks);
+
+  nav {
+    padding: var(--space-3);
+  }
 }
-animSparks();
-
-document.addEventListener('click', e => {
-  for (let i = 0; i < 14; i++) sparks.push(new Spark(e.clientX, e.clientY));
-});
-
-/* ═══════════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════════ */
-const reveals  = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-reveals.forEach(el => observer.observe(el));
-
-/* ═══════════════════════════════════════════
-   SCROLL PROGRESS + BACK TO TOP
-═══════════════════════════════════════════ */
-const progressBar = document.getElementById('scroll-progress');
-const btt         = document.getElementById('back-to-top');
-
-addEventListener('scroll', () => {
-  const pct = (scrollY / (document.body.scrollHeight - innerHeight)) * 100;
-  progressBar.style.width = pct + '%';
-  btt.classList.toggle('visible', scrollY > 400);
-});
-
-/* ═══════════════════════════════════════════
-   NAV SCROLL STATE
-═══════════════════════════════════════════ */
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => {
-  nav.style.background = scrollY > 60
-    ? 'rgba(6,8,16,0.95)'
-    : 'rgba(6,8,16,0.6)';
-});
-
-
-const hamburger = document.getElementById('hamburger');
-const drawer    = document.getElementById('nav-drawer');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  drawer.classList.toggle('open');
-});
-function closeDrawer() {
-  hamburger.classList.remove('open');
-  drawer.classList.remove('open');
-}
-
-
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect   = card.getBoundingClientRect();
-    const cx     = rect.left + rect.width / 2;
-    const cy     = rect.top  + rect.height / 2;
-    const dx     = (e.clientX - cx) / (rect.width  / 2);
-    const dy     = (e.clientY - cy) / (rect.height / 2);
-    const rx     = -dy * 7; // degrees
-    const ry     =  dx * 7;
-    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
-    // Specular highlight
-    const glare = `radial-gradient(circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(255,255,255,0.06) 0%, transparent 60%)`;
-    card.style.backgroundImage = glare + ', linear-gradient(135deg, rgba(11,14,23,0.65), rgba(15,20,32,0.45))';
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.backgroundImage = '';
-  });
-});
-
-
-const avatarWrap = document.getElementById('avatar-wrapper');
-if (avatarWrap) {
-  document.addEventListener('mousemove', e => {
-    const rect = avatarWrap.getBoundingClientRect();
-    const cx   = rect.left + rect.width  / 2;
-    const cy   = rect.top  + rect.height / 2;
-    const dx   = (e.clientX - cx) / 300;
-    const dy   = (e.clientY - cy) / 300;
-    avatarWrap.style.transform = `perspective(600px) rotateX(${-dy * 8}deg) rotateY(${dx * 8}deg)`;
-  });
-}
-
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const rect = btn.getBoundingClientRect();
-    const cx   = rect.left + rect.width  / 2;
-    const cy   = rect.top  + rect.height / 2;
-    const dx   = (e.clientX - cx) * 0.25;
-    const dy   = (e.clientY - cy) * 0.25;
-    btn.style.transform = `translate(${dx}px, ${dy}px) translateY(-2px)`;
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = '';
-  });
-});
-</script>
-</body>
-</html>
