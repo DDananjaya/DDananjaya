@@ -53,6 +53,7 @@
   <a href="#hero" class="nav-logo">&lt;<span>M L D Dananjaya</span>/&gt;</a>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
+    <li><a href="#activity">activity</a></li>
     <li><a href="#skills">stack</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#connect">connect</a></li>
@@ -68,6 +69,7 @@
 
 <nav class="nav-drawer" id="nav-drawer">
   <a href="#about"    onclick="closeDrawer()">about</a>
+  <a href="#activity" onclick="closeDrawer()">activity</a>
   <a href="#skills"   onclick="closeDrawer()">stack</a>
   <a href="#projects" onclick="closeDrawer()">projects</a>
   <a href="#connect"  onclick="closeDrawer()">connect</a>
@@ -160,6 +162,7 @@
       <span class="section-num">01</span>
       <h2 class="section-title">About</h2>
       <div class="section-line"></div>
+      <span class="live-badge" id="github-live-badge"><span class="live-dot"></span>Live from GitHub</span>
     </div>
     <div class="about-grid">
 
@@ -204,24 +207,60 @@
       </div>
 
       <div class="stats-grid reveal reveal-delay-2">
-        <div class="stat-card">
-          <div class="stat-num">12<span class="acc">+</span></div>
+        <div class="stat-card is-loading" id="stat-repos">
+          <div class="stat-num skeleton" id="stat-repos-num">12<span class="acc">+</span></div>
           <div class="stat-label">Repositories</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">40<span class="acc">★</span></div>
+        <div class="stat-card is-loading" id="stat-stars">
+          <div class="stat-num skeleton" id="stat-stars-num">40<span class="acc">★</span></div>
           <div class="stat-label">Stars Earned</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">6<span class="acc">+</span></div>
-          <div class="stat-label">Projects Shipped</div>
+        <div class="stat-card is-loading" id="stat-followers">
+          <div class="stat-num skeleton" id="stat-followers-num">—</div>
+          <div class="stat-label">Followers</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">∞</div>
           <div class="stat-label">Problems Solved</div>
         </div>
       </div>
+      <div class="live-updated" id="live-updated-text">Fetching live GitHub data…</div>
 
+    </div>
+  </div>
+</section>
+
+<section id="activity">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">01b</span>
+      <h2 class="section-title">Recent Activity</h2>
+      <div class="section-line"></div>
+      <span class="live-badge" id="activity-live-badge"><span class="live-dot"></span>Live</span>
+    </div>
+    <div class="activity-feed" id="activity-feed">
+      <div class="activity-item">
+        <div class="activity-icon">⏳</div>
+        <div class="activity-body">
+          <div class="activity-text skeleton">Loading recent GitHub activity…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="live-repos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">01c</span>
+      <h2 class="section-title">Latest Repos</h2>
+      <div class="section-line"></div>
+      <span class="live-badge" id="repos-live-badge"><span class="live-dot"></span>Live</span>
+    </div>
+    <div class="repos-grid" id="repos-grid">
+      <div class="repo-card"><div class="repo-card-name skeleton">Loading…</div></div>
+      <div class="repo-card"><div class="repo-card-name skeleton">Loading…</div></div>
+      <div class="repo-card"><div class="repo-card-name skeleton">Loading…</div></div>
     </div>
   </div>
 </section>
@@ -415,6 +454,8 @@
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
+        <!-- Note: LinkedIn has no public read API for live profile data without OAuth + partner access,
+             so this stays a direct link rather than a fake "live" widget. GitHub data above is genuinely live. -->
         <a href="https://www.instagram.com/dana__028" target="_blank" class="social-link">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           Instagram
@@ -600,6 +641,235 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
   btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
 });
+
+/* ============================================
+   LIVE GITHUB DATA
+   Fetches real, current data from GitHub's public
+   REST API — no auth needed, runs client-side.
+   Docs: https://docs.github.com/en/rest
+   ============================================ */
+(function liveGitHub() {
+  const GH_USER = 'DDananjaya';
+  const API     = 'https://api.github.com';
+
+  const LANG_COLORS = {
+    JavaScript: '#f1e05a', TypeScript: '#3178c6', Java: '#b07219',
+    HTML: '#e34c26', CSS: '#563d7c', Python: '#3572A5',
+    'Jupyter Notebook': '#DA5B0B', Shell: '#89e051', C: '#555555',
+    'C++': '#f34b7d', PHP: '#4F5D95', Vue: '#41b883', default: '#557c93'
+  };
+
+  function timeAgo(dateStr) {
+    const diffMs = Date.now() - new Date(dateStr).getTime();
+    const mins = Math.floor(diffMs / 60000);
+    if (mins < 1)   return 'just now';
+    if (mins < 60)  return mins + 'm ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24)   return hrs + 'h ago';
+    const days = Math.floor(hrs / 24);
+    if (days < 30)  return days + 'd ago';
+    const months = Math.floor(days / 30);
+    if (months < 12) return months + 'mo ago';
+    return Math.floor(months / 12) + 'y ago';
+  }
+
+  function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function animateCount(el, target, suffix) {
+    const start = 0;
+    const dur = 900;
+    const t0 = performance.now();
+    function step(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(start + (target - start) * eased) + '';
+      if (suffix) {
+        const span = document.createElement('span');
+        span.className = 'acc';
+        span.textContent = suffix;
+        el.appendChild(span);
+      }
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function setLiveBadgeError(id, label) {
+    const badge = document.getElementById(id);
+    if (!badge) return;
+    badge.classList.add('is-error');
+    badge.innerHTML = '<span class="live-dot"></span>' + label;
+  }
+
+  function markStatsError() {
+    ['stat-repos-num','stat-stars-num','stat-followers-num'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.classList.remove('skeleton'); el.textContent = '–'; }
+    });
+    document.querySelectorAll('#stat-repos, #stat-stars, #stat-followers')
+      .forEach(c => c.classList.remove('is-loading'));
+    const ts = document.getElementById('live-updated-text');
+    if (ts) ts.innerHTML = 'Live data unavailable right now — showing fallback values. ' +
+      '<a href="https://github.com/' + GH_USER + '" target="_blank" style="color:var(--c1)">View live on GitHub →</a>';
+    setLiveBadgeError('github-live-badge', 'Offline');
+  }
+
+  // --- 1. Profile stats: public repos, followers, total stars ---
+  async function loadProfileStats() {
+    try {
+      const userRes = await fetch(`${API}/users/${GH_USER}`);
+      if (!userRes.ok) throw new Error('user fetch failed: ' + userRes.status);
+      const user = await userRes.json();
+
+      const reposNumEl = document.getElementById('stat-repos-num');
+      const followersNumEl = document.getElementById('stat-followers-num');
+      reposNumEl.classList.remove('skeleton');
+      followersNumEl.classList.remove('skeleton');
+      reposNumEl.textContent = '';
+      followersNumEl.textContent = '';
+      animateCount(reposNumEl, user.public_repos, '+');
+      animateCount(followersNumEl, user.followers, '');
+      document.getElementById('stat-repos').classList.remove('is-loading');
+      document.getElementById('stat-followers').classList.remove('is-loading');
+
+      // Total stars requires summing across repos (paginate up to 100 per page)
+      let page = 1, totalStars = 0, repos = [];
+      while (page <= 3) { // up to 300 repos, plenty for a personal profile
+        const res = await fetch(`${API}/users/${GH_USER}/repos?per_page=100&page=${page}&sort=updated`);
+        if (!res.ok) throw new Error('repos fetch failed: ' + res.status);
+        const batch = await res.json();
+        repos = repos.concat(batch);
+        if (batch.length < 100) break;
+        page++;
+      }
+      totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+
+      const starsNumEl = document.getElementById('stat-stars-num');
+      starsNumEl.classList.remove('skeleton');
+      starsNumEl.textContent = '';
+      animateCount(starsNumEl, totalStars, '★');
+      document.getElementById('stat-stars').classList.remove('is-loading');
+
+      const ts = document.getElementById('live-updated-text');
+      const now = new Date();
+      if (ts) ts.innerHTML = 'Live from GitHub · last synced <strong>' +
+        now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</strong>';
+
+      renderRepos(repos);
+    } catch (err) {
+      console.warn('GitHub stats unavailable:', err);
+      markStatsError();
+      renderReposError();
+    }
+  }
+
+  // --- 2. Latest repos grid (sorted by most recently pushed) ---
+  function renderRepos(repos) {
+    const grid = document.getElementById('repos-grid');
+    if (!grid) return;
+    const top = repos
+      .filter(r => !r.fork)
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+      .slice(0, 6);
+
+    if (!top.length) {
+      grid.innerHTML = '<div class="live-empty">No public repositories found.</div>';
+      document.getElementById('repos-live-badge')?.classList.add('is-error');
+      return;
+    }
+
+    grid.innerHTML = top.map(r => {
+      const color = LANG_COLORS[r.language] || LANG_COLORS.default;
+      return `
+        <a href="${r.html_url}" target="_blank" class="repo-card">
+          <div class="repo-card-name">${escapeHtml(r.name)} <span class="repo-arrow">↗</span></div>
+          <div class="repo-card-desc">${escapeHtml(r.description) || 'No description provided.'}</div>
+          <div class="repo-card-meta">
+            ${r.language ? `<span><span class="repo-lang-dot" style="background:${color}"></span>${escapeHtml(r.language)}</span>` : ''}
+            <span>★ ${r.stargazers_count}</span>
+            <span>Updated ${timeAgo(r.pushed_at)}</span>
+          </div>
+        </a>`;
+    }).join('');
+  }
+
+  function renderReposError() {
+    const grid = document.getElementById('repos-grid');
+    if (!grid) return;
+    grid.innerHTML = `<div class="live-error-msg" style="grid-column:1/-1">
+      Couldn't load live repo data right now.
+      <a href="https://github.com/${GH_USER}?tab=repositories" target="_blank">Browse repositories on GitHub →</a>
+    </div>`;
+    setLiveBadgeError('repos-live-badge', 'Offline');
+  }
+
+  // --- 3. Recent public activity feed ---
+  const EVENT_LABELS = {
+    PushEvent: (e) => {
+      const n = e.payload?.commits?.length || 0;
+      return `pushed <strong>${n}</strong> commit${n === 1 ? '' : 's'} to <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`;
+    },
+    CreateEvent: (e) => `created <strong>${escapeHtml(e.payload?.ref_type || 'repo')}</strong> in <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    WatchEvent: (e) => `starred <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    ForkEvent: (e) => `forked <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    IssuesEvent: (e) => `${escapeHtml(e.payload?.action)} an issue on <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    PullRequestEvent: (e) => `${escapeHtml(e.payload?.action)} a pull request on <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    IssueCommentEvent: (e) => `commented on an issue in <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+    PublicEvent: (e) => `made <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a> public`,
+    ReleaseEvent: (e) => `published a release on <a href="https://github.com/${e.repo.name}" target="_blank">${escapeHtml(e.repo.name)}</a>`,
+  };
+  const EVENT_ICONS = {
+    PushEvent: '⬆', CreateEvent: '✦', WatchEvent: '★', ForkEvent: '⑂',
+    IssuesEvent: '◐', PullRequestEvent: '⇄', IssueCommentEvent: '💬',
+    PublicEvent: '🌐', ReleaseEvent: '🏷'
+  };
+
+  async function loadActivityFeed() {
+    const feed = document.getElementById('activity-feed');
+    try {
+      const res = await fetch(`${API}/users/${GH_USER}/events/public?per_page=8`);
+      if (!res.ok) throw new Error('events fetch failed: ' + res.status);
+      const events = (await res.json()).filter(e => EVENT_LABELS[e.type]).slice(0, 6);
+
+      if (!events.length) {
+        feed.innerHTML = '<div class="live-empty">No recent public activity to show.</div>';
+        return;
+      }
+
+      feed.innerHTML = events.map(e => `
+        <div class="activity-item">
+          <div class="activity-icon">${EVENT_ICONS[e.type] || '•'}</div>
+          <div class="activity-body">
+            <div class="activity-text"><strong>${escapeHtml(GH_USER)}</strong> ${EVENT_LABELS[e.type](e)}</div>
+            <div class="activity-time">${timeAgo(e.created_at)}</div>
+          </div>
+        </div>
+      `).join('');
+    } catch (err) {
+      console.warn('GitHub activity unavailable:', err);
+      feed.innerHTML = `<div class="live-error-msg">
+        Couldn't load live activity right now.
+        <a href="https://github.com/${GH_USER}" target="_blank">View on GitHub →</a>
+      </div>`;
+      setLiveBadgeError('activity-live-badge', 'Offline');
+    }
+  }
+
+  loadProfileStats();
+  loadActivityFeed();
+
+  // Keep it genuinely "live": refresh every 2 minutes while the tab is visible.
+  setInterval(() => {
+    if (document.visibilityState === 'visible') {
+      loadProfileStats();
+      loadActivityFeed();
+    }
+  }, 120000);
+})();
 </script>
 </body>
 </html>
